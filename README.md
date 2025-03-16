@@ -17,7 +17,7 @@ This guide explains how to set, change, and rotate the User-Agent header in Post
 
 ## Why You Need to Set a Custom User Agent
 
-The [`User-Agent`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent) header identifies the client making an HTTP request. It typically includes details about the client’s machine and the application used for the request. Web browsers, HTTP clients, and other software set this header automatically.
+The [`User-Agent`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent) header identifies the client making an HTTP request. It typically includes details about the client’s machine and the application used for the request. Web browsers, [HTTP clients](https://brightdata.com/blog/web-data/best-python-http-clients), and other software set this header automatically.
 
 Here’s an example of a `User-Agent` string used by Chrome when requesting a web page:
 
@@ -44,7 +44,7 @@ A common mistake among web scraping bots is using default or non-browser `User-A
 
 You can observe this behavior by inspecting the auto-generated headers in Postman.
 
-![observe this behavior by examining the auto-generated Postman headers](https://brightdata.com/wp-content/uploads/2024/08/observe-this-behavior-by-examining-the-auto-generated-Postman-headers-1024x396.png)
+![observe this behavior by examining the auto-generated Postman headers](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/observe-this-behavior-by-examining-the-auto-generated-Postman-headers-1024x396.png)
 
 As you can see, the Postman default user agent follows this format:
 
@@ -56,7 +56,7 @@ The `PostmanRuntime/x.y.z` string indicates a request made by Postman, where `x.
 
 To confirm this, send a GET request to [`httpbin.io/user-agent`](https://httpbin.io/user-agent). This endpoint returns the `User-Agent` header of the incoming request, allowing you to verify the user agent used by any HTTP client.
 
-![identify the user agent used](https://brightdata.com/wp-content/uploads/2024/08/identify-the-user-agent-used-1024x593.png)
+![identify the user agent used](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/identify-the-user-agent-used-1024x593.png)
 
 Notice how the user agent returned by the API matches the one set by Postman by default. In detail, the Postman user agent is:
 
@@ -78,13 +78,13 @@ Postman allows you to change the user agent on a single HTTP request by manually
 
 Go to the “Headers” tab and add a new `User-Agent` header:
 
-![adding a new user-agent header](https://brightdata.com/wp-content/uploads/2024/08/adding-a-new-user-agent-header-1024x333.gif)
+![adding a new user-agent header](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/adding-a-new-user-agent-header-1024x333.gif)
 
 Postman replaces its default `User-Agent` with your custom header. Since [HTTP headers are case-insensitive](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers), you can use `User-Agent`, `user-agent`, or any variation.
 
 Verify the change by sending a GET request to `httpbin.io/user-agent`.
 
-![executing a GET request](https://brightdata.com/wp-content/uploads/2024/08/executing-a-GET-request-1024x578.png)
+![executing a GET request](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/executing-a-GET-request-1024x578.png)
 
 ### Set the User Agent on an Entire Collection
 
@@ -94,11 +94,11 @@ To apply a custom `User-Agent` to all requests, log in to your Postman account o
 
 Assume you have an "HTTPBin" collection with organized HTTPBin endpoints:
 
-![HTTPBin endpoints organized in folders](https://brightdata.com/wp-content/uploads/2024/08/HTTPBin-endpoints-organized-in-folders-1024x554.png)
+![HTTPBin endpoints organized in folders](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/HTTPBin-endpoints-organized-in-folders-1024x554.png)
 
 Execute the request for the `/user-agent` endpoint, and you will get the default Postman user agent:
 
-![the default Postman user agent](https://brightdata.com/wp-content/uploads/2024/08/the-default-Postman-user-agent-1024x555.png)
+![the default Postman user agent](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/the-default-Postman-user-agent-1024x555.png)
 
 A [pre-request script](https://learning.postman.com/docs/tests-and-scripts/write-scripts/pre-request-scripts/) is a JavaScript function that runs before each request in a Postman collection. You can use it to set a custom `User-Agent` header.
 
@@ -107,7 +107,7 @@ To create a pre-request script:
 2. Navigate to the **Scripts** tab.  
 3. Select the **Pre-request** option.  
 
-![select the “Pre-request” option](https://brightdata.com/wp-content/uploads/2024/08/select-the-Pre-request-option-1024x557.gif)
+![select the “Pre-request” option](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/select-the-Pre-request-option-1024x557.gif)
 
 In the editor, paste the following code:
 
@@ -139,7 +139,7 @@ Click the “Save” button to apply the changes.
 
 Execute the request for the `/user-agent` endpoint again:
 
-![executing the request again ](https://brightdata.com/wp-content/uploads/2024/08/executing-the-request-again-1024x559.png)
+![executing the request again ](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/executing-the-request-again-1024x559.png)
 
 This time, the returned user agent will be the one set in the script and not the default Postman one.
 
@@ -149,7 +149,7 @@ The `User-Agent` auto-generated header is optional, and you can actually uncheck
 
 Verify that by sending a request to the [`httpbin.io/headers`](https://httpbin.io/headers) endpoint, which returns all the headers of the incoming request:
 
-![return of all the headers of the incoming request](https://brightdata.com/wp-content/uploads/2024/08/return-of-all-the-headers-of-the-incoming-request-1024x640.png)
+![return of all the headers of the incoming request](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/return-of-all-the-headers-of-the-incoming-request-1024x640.png)
 
 Note that the headers object returned by the endpoint does not include the `User-Agent` key.
 
@@ -275,7 +275,7 @@ value: userAgent
 
 Add the script to your collection and test it by sending requests to `httpbin.io/user-agent`. Run multiple requests to observe the rotating user agents in action.
 
-![executing requests and seeing the rotation of user agents](https://brightdata.com/wp-content/uploads/2024/08/executing-requests-and-seeing-the-rotation-of-user-agents-1024x557.gif)
+![executing requests and seeing the rotation of user agents](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/executing-requests-and-seeing-the-rotation-of-user-agents-1024x557.gif)
 
 The returned user agent keeps changing.
 

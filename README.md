@@ -1,6 +1,6 @@
 # Postman User-Agent 헤더 설정 및 변경
 
-[![Promo](https://github.com/luminati-io/LinkedIn-Scraper/raw/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.co.kr/) 
+[![Promo](https://github.com/bright-kr/LinkedIn-Scraper/raw/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.co.kr/) 
 
 이 가이드는 앤チボット 감지를 피하고 HTTP リクエスト를 개선하기 위해 Postman에서 User-Agent ヘッダー를 설정, 변경 및 로ーテーション하는 방법을 설명합니다:
 
@@ -44,7 +44,7 @@ Webスクレイピング 봇에서 흔히 하는 실수는 기본값 또는 비�
 
 Postman에서 자동 생성된 ヘッダー를 검사하면 이 동작을 확인할 수 있습니다.
 
-![observe this behavior by examining the auto-generated Postman headers](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/observe-this-behavior-by-examining-the-auto-generated-Postman-headers-1024x396.png)
+![observe this behavior by examining the auto-generated Postman headers](https://github.com/bright-kr/postman-user-agent-header/blob/main/images/observe-this-behavior-by-examining-the-auto-generated-Postman-headers-1024x396.png)
 
 보시는 것처럼 Postman 기본 user agent는 다음 형식을 따릅니다:
 
@@ -56,7 +56,7 @@ PostmanRuntime/x.y.z
 
 이를 확인하려면 [`httpbin.io/user-agent`](https://httpbin.io/user-agent)로 GET リクエスト를 전송하십시오. 이 エンドポイント는 들어오는 リクエ스트의 `User-Agent` ヘッダー를 반환하므로, 어떤 HTTP 클라이언트가 사용한 user agent인지 검증할 수 있습니다.
 
-![identify the user agent used](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/identify-the-user-agent-used-1024x593.png)
+![identify the user agent used](https://github.com/bright-kr/postman-user-agent-header/blob/main/images/identify-the-user-agent-used-1024x593.png)
 
 API가 반환한 user agent가 Postman이 기본으로 설정한 값과 일치하는 것을 확인할 수 있습니다. 구체적으로 Postman user agent는 다음과 같습니다:
 
@@ -78,13 +78,13 @@ Postman에서는 `User-Agent` ヘッダー를 수동으로 지정하여 단일 H
 
 “Headers” 탭으로 이동한 다음 새 `User-Agent` ヘッダー를 추가하십시오:
 
-![adding a new user-agent header](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/adding-a-new-user-agent-header-1024x333.gif)
+![adding a new user-agent header](https://github.com/bright-kr/postman-user-agent-header/blob/main/images/adding-a-new-user-agent-header-1024x333.gif)
 
 Postman은 기본 `User-Agent`를 사용자 정의 ヘッダー로 대체합니다. [HTTP ヘッダー는 대소문자를 구분하지 않으므로](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) `User-Agent`, `user-agent` 또는 다른 변형을 사용할 수 있습니다.
 
 `httpbin.io/user-agent`로 GET リクエスト를 보내 변경 사항을 확인하십시오.
 
-![executing a GET request](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/executing-a-GET-request-1024x578.png)
+![executing a GET request](https://github.com/bright-kr/postman-user-agent-header/blob/main/images/executing-a-GET-request-1024x578.png)
 
 ### 전체 컬렉션에 User Agent 설정
 
@@ -94,11 +94,11 @@ Postman은 기본 `User-Agent`를 사용자 정의 ヘッダー로 대체합니�
 
 정리된 HTTPBin エンドポイント를 가진 "HTTPBin" 컬렉션이 있다고 가정합니다:
 
-![HTTPBin endpoints organized in folders](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/HTTPBin-endpoints-organized-in-folders-1024x554.png)
+![HTTPBin endpoints organized in folders](https://github.com/bright-kr/postman-user-agent-header/blob/main/images/HTTPBin-endpoints-organized-in-folders-1024x554.png)
 
 `/user-agent` エンドポイント에 대한 リクエスト를 실행하면 기본 Postman user agent가 반환됩니다:
 
-![the default Postman user agent](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/the-default-Postman-user-agent-1024x555.png)
+![the default Postman user agent](https://github.com/bright-kr/postman-user-agent-header/blob/main/images/the-default-Postman-user-agent-1024x555.png)
 
 [pre-request 스크립트](https://learning.postman.com/docs/tests-and-scripts/write-scripts/pre-request-scripts/)는 Postman 컬렉션에서 각 リクエスト 전에 실행되는 JavaScript 함수입니다. 이를 사용해 커스텀 `User-Agent` ヘッダー를 설정할 수 있습니다.
 
@@ -107,7 +107,7 @@ pre-request 스크립트를 만들려면:
 2. **Scripts** 탭으로 이동하십시오.  
 3. **Pre-request** 옵션을 선택하십시오.  
 
-![select the “Pre-request” option](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/select-the-Pre-request-option-1024x557.gif)
+![select the “Pre-request” option](https://github.com/bright-kr/postman-user-agent-header/blob/main/images/select-the-Pre-request-option-1024x557.gif)
 
 에디터에 다음 코드를 붙여넣으십시오:
 
@@ -139,7 +139,7 @@ value: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, lik
 
 `/user-agent` エンドポイント에 대한 リクエスト를 다시 실행하십시오:
 
-![executing the request again ](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/executing-the-request-again-1024x559.png)
+![executing the request again ](https://github.com/bright-kr/postman-user-agent-header/blob/main/images/executing-the-request-again-1024x559.png)
 
 이번에는 기본 Postman user agent가 아니라 스크립트에서 설정한 user agent가 반환됩니다.
 
@@ -149,7 +149,7 @@ value: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, lik
 
 들어오는 リクエスト의 모든 ヘッダー를 반환하는 [`httpbin.io/headers`](https://httpbin.io/headers) エンドポイント로 リクエスト를 보내 이를 확인하십시오:
 
-![return of all the headers of the incoming request](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/return-of-all-the-headers-of-the-incoming-request-1024x640.png)
+![return of all the headers of the incoming request](https://github.com/bright-kr/postman-user-agent-header/blob/main/images/return-of-all-the-headers-of-the-incoming-request-1024x640.png)
 
 エンドポイント가 반환한 headers 객체에 `User-Agent` 키가 포함되지 않은 것을 확인할 수 있습니다.
 
@@ -275,7 +275,7 @@ value: userAgent
 
 스크립트를 컬렉션에 추가한 다음 `httpbin.io/user-agent`로 リクエスト를 전송하여 테스트하십시오. 여러 번 リクエスト를 실행하여 로ーテーティング user agent가 실제로 동작하는지 확인하십시오.
 
-![executing requests and seeing the rotation of user agents](https://github.com/luminati-io/postman-user-agent-header/blob/main/images/executing-requests-and-seeing-the-rotation-of-user-agents-1024x557.gif)
+![executing requests and seeing the rotation of user agents](https://github.com/bright-kr/postman-user-agent-header/blob/main/images/executing-requests-and-seeing-the-rotation-of-user-agents-1024x557.gif)
 
 반환되는 user agent가 계속 변경됩니다.
 
